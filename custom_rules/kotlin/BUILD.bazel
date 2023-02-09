@@ -1,0 +1,18 @@
+load("@io_bazel_rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library")
+load("//custom_rules/kotlin:rules.bzl", "uppercase")
+
+uppercase(
+    name = "kt_uppercase",
+    txt_files = glob(["*.txt"]),
+)
+
+kt_jvm_library(
+    name = "kt_compiler_lib",
+    srcs = glob(["*.kt"]),
+)
+
+java_binary(
+    name = "kt_compiler",
+    main_class = "CompilerKt",
+    runtime_deps = [":kt_compiler_lib"],
+)

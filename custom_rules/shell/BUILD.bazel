@@ -1,0 +1,11 @@
+load("//custom_rules/shell:rules.bzl", "uppercase")
+
+uppercase(
+    name = "uppercase",
+    txt_files = glob(["*.txt"]),
+)
+
+sh_binary(
+    name = "executor",
+    srcs = ["executor.sh"],
+)

@@ -1,0 +1,19 @@
+load("//shell:macros.bzl", "capitalize", "copier")
+
+capitalize(
+    name = "capitalize",
+    srcs = ["lowercase.txt"],
+    outs = ["uppercase.txt"],
+)
+
+copier(
+    name = "copier",
+    srcs = [
+        "original1.txt",
+        "original2.txt",
+    ],
+    outs = [
+        "copy_original1.txt",
+        "copy_original2.txt",
+    ],
+)

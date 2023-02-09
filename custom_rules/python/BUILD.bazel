@@ -1,0 +1,16 @@
+load("//custom_rules/python:rules.bzl", "uppercase")
+
+# Custom rule
+uppercase(
+    name = "uppercase",
+    txt_files = [
+        "foo.txt",
+        "bar.txt",
+    ],
+)
+
+py_binary(
+    name = "compiler",
+    srcs = ["uppercase_generator.py"],
+    main = "uppercase_generator.py",
+)

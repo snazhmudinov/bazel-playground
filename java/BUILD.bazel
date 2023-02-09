@@ -1,0 +1,13 @@
+load("//java:macros.bzl", "j_capitalize")
+
+java_binary(
+    name = "Capitalizer",
+    srcs = glob(["*.java"]),
+)
+
+j_capitalize(
+    name = "j_capitalize",
+    srcs = ["lowercase.txt"],
+    outs = ["uppercase.txt"],
+    exec_tools = [":Capitalizer"],
+)

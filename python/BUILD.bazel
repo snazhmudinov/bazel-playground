@@ -1,0 +1,22 @@
+load("//python:macros.bzl", "py_capitalize", "py_test_wrapper")
+
+# Native Py binary
+py_binary(
+    name = "capitalizer",
+    srcs = ["capitalizer.py"],
+    main = "capitalizer.py",
+)
+
+# Macro
+py_capitalize(
+    name = "py_capitalize",
+    srcs = ["lowercase.txt"],
+    outs = ["uppercase.txt"],
+    exec_tools = [":capitalizer"],
+)
+
+py_test_wrapper(
+    name = "tests",
+    srcs = ["FooTest.py"],
+    main = "FooTest.py",
+)
