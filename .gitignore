@@ -1,7 +1,4 @@
 .idea
 .idea/
-bazel-bin/
-bazel-out/
-bazel-RulesMacros/
-bazel-testlogs/
+/bazel-*
 *.iml
